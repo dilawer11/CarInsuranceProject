@@ -44,7 +44,18 @@ public class Inspector {
 			PreparedStatement statement = con.prepareStatement("SELECT * FROM Accident");
 //			TODO Update Query
 			statement.setString(1, accidentID);
+			class AccidentDetails {
+				public String accidentID;
+				public String type;
+				public String city;
+				public String date;
+			}
 			
+			AccidentDetails ac;
+			ac.accidentID = "1";
+			ac.city = "Lahore";
+			ac.date = "2009-10-12";
+			ac.
 			ResultSet rs = statement.executeQuery();
 			while(rs.next()) {
 				
