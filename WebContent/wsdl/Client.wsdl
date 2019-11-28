@@ -1,0 +1,462 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://claim.carinsurance.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://claim.carinsurance.com" xmlns:intf="http://claim.carinsurance.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://claim.carinsurance.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="createPolicyClient">
+    <complexType>
+     <sequence>
+      <element name="carID" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="createPolicyClientResponse">
+    <complexType>
+     <sequence>
+      <element name="createPolicyClientReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="createAccident">
+    <complexType>
+     <sequence>
+      <element name="carID" type="xsd:int"/>
+      <element name="type" type="xsd:string"/>
+      <element name="city" type="xsd:string"/>
+      <element name="date" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="createAccidentResponse">
+    <complexType>
+     <sequence>
+      <element name="createAccidentReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="createClaim">
+    <complexType>
+     <sequence>
+      <element name="policyID" type="xsd:int"/>
+      <element name="accidentID" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="createClaimResponse">
+    <complexType>
+     <sequence>
+      <element name="createClaimReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getStatusPolicyApplication">
+    <complexType>
+     <sequence>
+      <element name="policyID" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getStatusPolicyApplicationResponse">
+    <complexType>
+     <sequence>
+      <element name="getStatusPolicyApplicationReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="createClient">
+    <complexType>
+     <sequence>
+      <element name="name" type="xsd:string"/>
+      <element name="address" type="xsd:string"/>
+      <element name="phone" type="xsd:string"/>
+      <element name="email" type="xsd:string"/>
+      <element name="dateOfBirth" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="createClientResponse">
+    <complexType>
+     <sequence>
+      <element name="createClientReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getStatusAccident">
+    <complexType>
+     <sequence>
+      <element name="claimID" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getStatusAccidentResponse">
+    <complexType>
+     <sequence>
+      <element name="getStatusAccidentReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="createCar">
+    <complexType>
+     <sequence>
+      <element name="registrationNumber" type="xsd:string"/>
+      <element name="makeCompany" type="xsd:string"/>
+      <element name="registrationYear" type="xsd:string"/>
+      <element name="clientID" type="xsd:int"/>
+      <element name="makeYear" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="createCarResponse">
+    <complexType>
+     <sequence>
+      <element name="createCarReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="createPolicyClientRequest">
+
+      <wsdl:part element="impl:createPolicyClient" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="createClaimRequest">
+
+      <wsdl:part element="impl:createClaim" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="createClientResponse">
+
+      <wsdl:part element="impl:createClientResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getStatusPolicyApplicationResponse">
+
+      <wsdl:part element="impl:getStatusPolicyApplicationResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="createCarResponse">
+
+      <wsdl:part element="impl:createCarResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="createClaimResponse">
+
+      <wsdl:part element="impl:createClaimResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="createAccidentResponse">
+
+      <wsdl:part element="impl:createAccidentResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getStatusAccidentRequest">
+
+      <wsdl:part element="impl:getStatusAccident" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="createAccidentRequest">
+
+      <wsdl:part element="impl:createAccident" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="createClientRequest">
+
+      <wsdl:part element="impl:createClient" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getStatusAccidentResponse">
+
+      <wsdl:part element="impl:getStatusAccidentResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getStatusPolicyApplicationRequest">
+
+      <wsdl:part element="impl:getStatusPolicyApplication" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="createPolicyClientResponse">
+
+      <wsdl:part element="impl:createPolicyClientResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="createCarRequest">
+
+      <wsdl:part element="impl:createCar" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="Client">
+
+      <wsdl:operation name="createPolicyClient">
+
+         <wsdl:input message="impl:createPolicyClientRequest" name="createPolicyClientRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:createPolicyClientResponse" name="createPolicyClientResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="createAccident">
+
+         <wsdl:input message="impl:createAccidentRequest" name="createAccidentRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:createAccidentResponse" name="createAccidentResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="createClaim">
+
+         <wsdl:input message="impl:createClaimRequest" name="createClaimRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:createClaimResponse" name="createClaimResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getStatusPolicyApplication">
+
+         <wsdl:input message="impl:getStatusPolicyApplicationRequest" name="getStatusPolicyApplicationRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getStatusPolicyApplicationResponse" name="getStatusPolicyApplicationResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="createClient">
+
+         <wsdl:input message="impl:createClientRequest" name="createClientRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:createClientResponse" name="createClientResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getStatusAccident">
+
+         <wsdl:input message="impl:getStatusAccidentRequest" name="getStatusAccidentRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getStatusAccidentResponse" name="getStatusAccidentResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="createCar">
+
+         <wsdl:input message="impl:createCarRequest" name="createCarRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:createCarResponse" name="createCarResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="ClientSoapBinding" type="impl:Client">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="createPolicyClient">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="createPolicyClientRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="createPolicyClientResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="createAccident">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="createAccidentRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="createAccidentResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="createClaim">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="createClaimRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="createClaimResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getStatusPolicyApplication">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getStatusPolicyApplicationRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getStatusPolicyApplicationResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="createClient">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="createClientRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="createClientResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getStatusAccident">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getStatusAccidentRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getStatusAccidentResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="createCar">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="createCarRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="createCarResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="ClientService">
+
+      <wsdl:port binding="impl:ClientSoapBinding" name="Client">
+
+         <wsdlsoap:address location="http://localhost:8080/CarInsurance/services/Client"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

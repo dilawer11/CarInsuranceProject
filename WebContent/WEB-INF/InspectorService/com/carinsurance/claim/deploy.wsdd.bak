@@ -1,0 +1,43 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from InspectorService WSDL service -->
+
+  <service name="Inspector" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://claim.carinsurance.com"/>
+      <parameter name="wsdlServiceElement" value="InspectorService"/>
+      <parameter name="schemaQualified" value="http://claim.carinsurance.com"/>
+      <parameter name="wsdlServicePort" value="Inspector"/>
+      <parameter name="className" value="com.carinsurance.claim.InspectorSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="Inspector"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="submitInitialReport" qname="operNS:submitInitialReport" xmlns:operNS="http://claim.carinsurance.com" returnQName="retNS:submitInitialReportReturn" xmlns:retNS="http://claim.carinsurance.com" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:policyID" xmlns:pns="http://claim.carinsurance.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:inspectorID" xmlns:pns="http://claim.carinsurance.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:carCondition" xmlns:pns="http://claim.carinsurance.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:comments" xmlns:pns="http://claim.carinsurance.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="submitAccidentReport" qname="operNS:submitAccidentReport" xmlns:operNS="http://claim.carinsurance.com" returnQName="retNS:submitAccidentReportReturn" xmlns:retNS="http://claim.carinsurance.com" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:claimID" xmlns:pns="http://claim.carinsurance.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:damageDetails" xmlns:pns="http://claim.carinsurance.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:comments" xmlns:pns="http://claim.carinsurance.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getPendingInitialAssignedInspections" qname="operNS:getPendingInitialAssignedInspections" xmlns:operNS="http://claim.carinsurance.com" returnQName="retNS:getPendingInitialAssignedInspectionsReturn" xmlns:retNS="http://claim.carinsurance.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:inspectorID" xmlns:pns="http://claim.carinsurance.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getPendingAccidentAssignedInspections" qname="operNS:getPendingAccidentAssignedInspections" xmlns:operNS="http://claim.carinsurance.com" returnQName="retNS:getPendingAccidentAssignedInspectionsReturn" xmlns:retNS="http://claim.carinsurance.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:inspectorID" xmlns:pns="http://claim.carinsurance.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="submitInitialReport getPendingInitialAssignedInspections submitAccidentReport getPendingAccidentAssignedInspections"/>
+
+  </service>
+</deployment>

@@ -1,0 +1,59 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from AdminService WSDL service -->
+
+  <service name="Admin" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://claim.carinsurance.com"/>
+      <parameter name="wsdlServiceElement" value="AdminService"/>
+      <parameter name="schemaQualified" value="http://claim.carinsurance.com"/>
+      <parameter name="wsdlServicePort" value="Admin"/>
+      <parameter name="className" value="com.carinsurance.claim.AdminSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="Admin"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="assignInspectorInitialReport" qname="operNS:assignInspectorInitialReport" xmlns:operNS="http://claim.carinsurance.com" returnQName="retNS:assignInspectorInitialReportReturn" xmlns:retNS="http://claim.carinsurance.com" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:policyID" xmlns:pns="http://claim.carinsurance.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:inspectorID" xmlns:pns="http://claim.carinsurance.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="createInspector" qname="operNS:createInspector" xmlns:operNS="http://claim.carinsurance.com" returnQName="retNS:createInspectorReturn" xmlns:retNS="http://claim.carinsurance.com" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:name" xmlns:pns="http://claim.carinsurance.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:phone" xmlns:pns="http://claim.carinsurance.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:email" xmlns:pns="http://claim.carinsurance.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="createDecisionPolicy" qname="operNS:createDecisionPolicy" xmlns:operNS="http://claim.carinsurance.com" returnQName="retNS:createDecisionPolicyReturn" xmlns:retNS="http://claim.carinsurance.com" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:policyID" xmlns:pns="http://claim.carinsurance.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:title" xmlns:pns="http://claim.carinsurance.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:description" xmlns:pns="http://claim.carinsurance.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:coverage" xmlns:pns="http://claim.carinsurance.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:charge" xmlns:pns="http://claim.carinsurance.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:status" xmlns:pns="http://claim.carinsurance.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="assignInspectorAccidentReport" qname="operNS:assignInspectorAccidentReport" xmlns:operNS="http://claim.carinsurance.com" returnQName="retNS:assignInspectorAccidentReportReturn" xmlns:retNS="http://claim.carinsurance.com" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:claimID" xmlns:pns="http://claim.carinsurance.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:inspectorID" xmlns:pns="http://claim.carinsurance.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="activatePolicy" qname="operNS:activatePolicy" xmlns:operNS="http://claim.carinsurance.com" returnQName="retNS:activatePolicyReturn" xmlns:retNS="http://claim.carinsurance.com" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:policyID" xmlns:pns="http://claim.carinsurance.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="createDecision" qname="operNS:createDecision" xmlns:operNS="http://claim.carinsurance.com" returnQName="retNS:createDecisionReturn" xmlns:retNS="http://claim.carinsurance.com" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:claimID" xmlns:pns="http://claim.carinsurance.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:decision" xmlns:pns="http://claim.carinsurance.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:clientPayment" xmlns:pns="http://claim.carinsurance.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:companyPayment" xmlns:pns="http://claim.carinsurance.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="deactivatePolicy" qname="operNS:deactivatePolicy" xmlns:operNS="http://claim.carinsurance.com" returnQName="retNS:deactivatePolicyReturn" xmlns:retNS="http://claim.carinsurance.com" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:policyID" xmlns:pns="http://claim.carinsurance.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="assignInspectorInitialReport createInspector deactivatePolicy activatePolicy createDecisionPolicy createDecision assignInspectorAccidentReport"/>
+
+  </service>
+</deployment>

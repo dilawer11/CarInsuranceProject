@@ -1,0 +1,28 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from DBConnectionService WSDL service -->
+
+  <service name="DBConnection" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://claim.carinsurance.com"/>
+      <parameter name="wsdlServiceElement" value="DBConnectionService"/>
+      <parameter name="schemaQualified" value="http://claim.carinsurance.com"/>
+      <parameter name="wsdlServicePort" value="DBConnection"/>
+      <parameter name="className" value="com.carinsurance.claim.DBConnectionSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="DBConnection"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="testConnection" qname="operNS:testConnection" xmlns:operNS="http://claim.carinsurance.com" returnQName="retNS:testConnectionReturn" xmlns:retNS="http://claim.carinsurance.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+      </operation>
+      <parameter name="allowedMethods" value="testConnection"/>
+
+  </service>
+</deployment>

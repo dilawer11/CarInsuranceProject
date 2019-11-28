@@ -1,0 +1,275 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://claim.carinsurance.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://claim.carinsurance.com" xmlns:intf="http://claim.carinsurance.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://claim.carinsurance.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="submitInitialReport">
+    <complexType>
+     <sequence>
+      <element name="policyID" type="xsd:int"/>
+      <element name="inspectorID" type="xsd:int"/>
+      <element name="carCondition" type="xsd:int"/>
+      <element name="comments" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="submitInitialReportResponse">
+    <complexType>
+     <sequence>
+      <element name="submitInitialReportReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="submitAccidentReport">
+    <complexType>
+     <sequence>
+      <element name="claimID" type="xsd:int"/>
+      <element name="damageDetails" type="xsd:string"/>
+      <element name="comments" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="submitAccidentReportResponse">
+    <complexType>
+     <sequence>
+      <element name="submitAccidentReportReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getPendingInitialAssignedInspections">
+    <complexType>
+     <sequence>
+      <element name="inspectorID" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getPendingInitialAssignedInspectionsResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="getPendingInitialAssignedInspectionsReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getPendingAccidentAssignedInspections">
+    <complexType>
+     <sequence>
+      <element name="inspectorID" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getPendingAccidentAssignedInspectionsResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="getPendingAccidentAssignedInspectionsReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="submitAccidentReportResponse">
+
+      <wsdl:part element="impl:submitAccidentReportResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getPendingInitialAssignedInspectionsRequest">
+
+      <wsdl:part element="impl:getPendingInitialAssignedInspections" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getPendingInitialAssignedInspectionsResponse">
+
+      <wsdl:part element="impl:getPendingInitialAssignedInspectionsResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getPendingAccidentAssignedInspectionsRequest">
+
+      <wsdl:part element="impl:getPendingAccidentAssignedInspections" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="submitInitialReportRequest">
+
+      <wsdl:part element="impl:submitInitialReport" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="submitInitialReportResponse">
+
+      <wsdl:part element="impl:submitInitialReportResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="submitAccidentReportRequest">
+
+      <wsdl:part element="impl:submitAccidentReport" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getPendingAccidentAssignedInspectionsResponse">
+
+      <wsdl:part element="impl:getPendingAccidentAssignedInspectionsResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="Inspector">
+
+      <wsdl:operation name="submitInitialReport">
+
+         <wsdl:input message="impl:submitInitialReportRequest" name="submitInitialReportRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:submitInitialReportResponse" name="submitInitialReportResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="submitAccidentReport">
+
+         <wsdl:input message="impl:submitAccidentReportRequest" name="submitAccidentReportRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:submitAccidentReportResponse" name="submitAccidentReportResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getPendingInitialAssignedInspections">
+
+         <wsdl:input message="impl:getPendingInitialAssignedInspectionsRequest" name="getPendingInitialAssignedInspectionsRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getPendingInitialAssignedInspectionsResponse" name="getPendingInitialAssignedInspectionsResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getPendingAccidentAssignedInspections">
+
+         <wsdl:input message="impl:getPendingAccidentAssignedInspectionsRequest" name="getPendingAccidentAssignedInspectionsRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getPendingAccidentAssignedInspectionsResponse" name="getPendingAccidentAssignedInspectionsResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="InspectorSoapBinding" type="impl:Inspector">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="submitInitialReport">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="submitInitialReportRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="submitInitialReportResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="submitAccidentReport">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="submitAccidentReportRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="submitAccidentReportResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getPendingInitialAssignedInspections">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getPendingInitialAssignedInspectionsRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getPendingInitialAssignedInspectionsResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getPendingAccidentAssignedInspections">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getPendingAccidentAssignedInspectionsRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getPendingAccidentAssignedInspectionsResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="InspectorService">
+
+      <wsdl:port binding="impl:InspectorSoapBinding" name="Inspector">
+
+         <wsdlsoap:address location="http://localhost:8080/CarInsurance/services/Inspector"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

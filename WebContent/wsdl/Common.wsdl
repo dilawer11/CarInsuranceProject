@@ -1,0 +1,270 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions targetNamespace="http://claim.carinsurance.com" xmlns:apachesoap="http://xml.apache.org/xml-soap" xmlns:impl="http://claim.carinsurance.com" xmlns:intf="http://claim.carinsurance.com" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:wsdlsoap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+<!--WSDL created by Apache Axis version: 1.4
+Built on Apr 22, 2006 (06:55:48 PDT)-->
+ <wsdl:types>
+  <schema elementFormDefault="qualified" targetNamespace="http://claim.carinsurance.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="getCarDetails">
+    <complexType>
+     <sequence>
+      <element name="carID" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getCarDetailsResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="getCarDetailsReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getClientDetails">
+    <complexType>
+     <sequence>
+      <element name="clientID" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getClientDetailsResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="getClientDetailsReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getAccidentDetails">
+    <complexType>
+     <sequence>
+      <element name="accidentID" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getAccidentDetailsResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="getAccidentDetailsReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getPolicyDetails">
+    <complexType>
+     <sequence>
+      <element name="policyID" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getPolicyDetailsResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="getPolicyDetailsReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+  </schema>
+ </wsdl:types>
+
+   <wsdl:message name="getClientDetailsRequest">
+
+      <wsdl:part element="impl:getClientDetails" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getPolicyDetailsRequest">
+
+      <wsdl:part element="impl:getPolicyDetails" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getCarDetailsResponse">
+
+      <wsdl:part element="impl:getCarDetailsResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getClientDetailsResponse">
+
+      <wsdl:part element="impl:getClientDetailsResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getAccidentDetailsResponse">
+
+      <wsdl:part element="impl:getAccidentDetailsResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getAccidentDetailsRequest">
+
+      <wsdl:part element="impl:getAccidentDetails" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getPolicyDetailsResponse">
+
+      <wsdl:part element="impl:getPolicyDetailsResponse" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="getCarDetailsRequest">
+
+      <wsdl:part element="impl:getCarDetails" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:portType name="Common">
+
+      <wsdl:operation name="getCarDetails">
+
+         <wsdl:input message="impl:getCarDetailsRequest" name="getCarDetailsRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getCarDetailsResponse" name="getCarDetailsResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getClientDetails">
+
+         <wsdl:input message="impl:getClientDetailsRequest" name="getClientDetailsRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getClientDetailsResponse" name="getClientDetailsResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getAccidentDetails">
+
+         <wsdl:input message="impl:getAccidentDetailsRequest" name="getAccidentDetailsRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getAccidentDetailsResponse" name="getAccidentDetailsResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getPolicyDetails">
+
+         <wsdl:input message="impl:getPolicyDetailsRequest" name="getPolicyDetailsRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getPolicyDetailsResponse" name="getPolicyDetailsResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:portType>
+
+   <wsdl:binding name="CommonSoapBinding" type="impl:Common">
+
+      <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="getCarDetails">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getCarDetailsRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getCarDetailsResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getClientDetails">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getClientDetailsRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getClientDetailsResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getAccidentDetails">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getAccidentDetailsRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getAccidentDetailsResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="getPolicyDetails">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getPolicyDetailsRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getPolicyDetailsResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+   </wsdl:binding>
+
+   <wsdl:service name="CommonService">
+
+      <wsdl:port binding="impl:CommonSoapBinding" name="Common">
+
+         <wsdlsoap:address location="http://localhost:8080/CarInsurance/services/Common"/>
+
+      </wsdl:port>
+
+   </wsdl:service>
+
+</wsdl:definitions>

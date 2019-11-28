@@ -30,7 +30,7 @@ public class Common {
 	public String[] getClientDetails(int clientID) {
 		try{
 			Connection con = DBConnection.getConnection();
-			PreparedStatement statement = con.prepareStatement("SELECT `name`, `address`, `phone`, `email` FROM `Client` WHERE `clientID = ?");
+			PreparedStatement statement = con.prepareStatement("SELECT * FROM Client WHERE clientID = ?");
 			statement.setInt(1, clientID);
 			ResultSet rs = statement.executeQuery();
 			ResultSetMetaData rsmd = rs.getMetaData();
@@ -44,6 +44,7 @@ public class Common {
 			}
 			return resultList;
 		} catch(Exception e){
+			System.out.println(e);
 			return null;
 		}
 	}
@@ -70,7 +71,7 @@ public class Common {
 	public String[] getPolicyDetails(int policyID) {
 		try{
 			Connection con = DBConnection.getConnection();
-			PreparedStatement statement = con.prepareStatement("SELECT * FROM `Policy` WHERE `policyID = ?");
+			PreparedStatement statement = con.prepareStatement("SELECT * FROM Policy WHERE policyID = ?");
 			statement.setInt(1, policyID);
 			ResultSet rs = statement.executeQuery();
 			ResultSetMetaData rsmd = rs.getMetaData();

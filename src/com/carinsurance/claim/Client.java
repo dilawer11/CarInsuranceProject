@@ -69,13 +69,13 @@ public class Client {
 	public int createClaim(int policyID, int accidentID) {
 		try {
 			Connection con = DBConnection.getConnection();
-			PreparedStatement statement = con.prepareStatement("INSERT INTO Claim VALUES (?, ?, ?)");
-			statement.setInt(1, 0);
-			statement.setInt(2, policyID);
-			statement.setInt(3, accidentID);
+			PreparedStatement statement = con.prepareStatement("INSERT INTO Claim VALUES (NULL, ?, ?, 'submitted')");
+			statement.setInt(1, policyID);
+			statement.setInt(2, accidentID);
 			statement.execute();
 			return 1;
 		} catch(Exception e) {
+			System.out.println(e);
 			return -1;
 		}
 	}
@@ -97,7 +97,7 @@ public class Client {
 	public String getStatusPolicyApplication(int policyID) {
 		try {
 			Connection con = DBConnection.getConnection();
-			PreparedStatement statement = con.prepareStatement("SELECT `status` FROM `InitialReport` WHERE `policyID` = ?");
+			PreparedStatement statement = con.prepareStatement("SELECT status FROM Policy WHERE policyID = ?");
 			statement.setInt(1, policyID);
 			ResultSet rs = statement.executeQuery();
 			String returnStatus = "";
@@ -106,7 +106,7 @@ public class Client {
 			}
 			return returnStatus;
 		} catch(Exception e) {
-			return "";
+			return null;
 		}
 	}
 
