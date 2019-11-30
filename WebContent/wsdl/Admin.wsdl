@@ -4,6 +4,51 @@
 Built on Apr 22, 2006 (06:55:48 PDT)-->
  <wsdl:types>
   <schema elementFormDefault="qualified" targetNamespace="http://claim.carinsurance.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="createDecision">
+    <complexType>
+     <sequence>
+      <element name="claimID" type="xsd:int"/>
+      <element name="decision" type="xsd:string"/>
+      <element name="clientPayment" type="xsd:string"/>
+      <element name="companyPayment" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="createDecisionResponse">
+    <complexType>
+     <sequence>
+      <element name="createDecisionReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="deactivatePolicy">
+    <complexType>
+     <sequence>
+      <element name="policyID" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="deactivatePolicyResponse">
+    <complexType>
+     <sequence>
+      <element name="deactivatePolicyReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="activatePolicy">
+    <complexType>
+     <sequence>
+      <element name="policyID" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="activatePolicyResponse">
+    <complexType>
+     <sequence>
+      <element name="activatePolicyReturn" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
    <element name="assignInspectorInitialReport">
     <complexType>
      <sequence>
@@ -16,22 +61,6 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
     <complexType>
      <sequence>
       <element name="assignInspectorInitialReportReturn" type="xsd:int"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="createInspector">
-    <complexType>
-     <sequence>
-      <element name="name" type="xsd:string"/>
-      <element name="phone" type="xsd:string"/>
-      <element name="email" type="xsd:string"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="createInspectorResponse">
-    <complexType>
-     <sequence>
-      <element name="createInspectorReturn" type="xsd:int"/>
      </sequence>
     </complexType>
    </element>
@@ -69,48 +98,19 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
      </sequence>
     </complexType>
    </element>
-   <element name="activatePolicy">
+   <element name="createInspector">
     <complexType>
      <sequence>
-      <element name="policyID" type="xsd:int"/>
+      <element name="name" type="xsd:string"/>
+      <element name="phone" type="xsd:string"/>
+      <element name="email" type="xsd:string"/>
      </sequence>
     </complexType>
    </element>
-   <element name="activatePolicyResponse">
+   <element name="createInspectorResponse">
     <complexType>
      <sequence>
-      <element name="activatePolicyReturn" type="xsd:int"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="createDecision">
-    <complexType>
-     <sequence>
-      <element name="claimID" type="xsd:int"/>
-      <element name="decision" type="xsd:string"/>
-      <element name="clientPayment" type="xsd:string"/>
-      <element name="companyPayment" type="xsd:string"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="createDecisionResponse">
-    <complexType>
-     <sequence>
-      <element name="createDecisionReturn" type="xsd:int"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="deactivatePolicy">
-    <complexType>
-     <sequence>
-      <element name="policyID" type="xsd:int"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="deactivatePolicyResponse">
-    <complexType>
-     <sequence>
-      <element name="deactivatePolicyReturn" type="xsd:int"/>
+      <element name="createInspectorReturn" type="xsd:int"/>
      </sequence>
     </complexType>
    </element>
@@ -125,14 +125,6 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    </wsdl:message>
 
-   <wsdl:message name="assignInspectorAccidentReportResponse">
-
-      <wsdl:part element="impl:assignInspectorAccidentReportResponse" name="parameters">
-
-      </wsdl:part>
-
-   </wsdl:message>
-
    <wsdl:message name="activatePolicyRequest">
 
       <wsdl:part element="impl:activatePolicy" name="parameters">
@@ -141,9 +133,9 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    </wsdl:message>
 
-   <wsdl:message name="assignInspectorInitialReportResponse">
+   <wsdl:message name="assignInspectorAccidentReportResponse">
 
-      <wsdl:part element="impl:assignInspectorInitialReportResponse" name="parameters">
+      <wsdl:part element="impl:assignInspectorAccidentReportResponse" name="parameters">
 
       </wsdl:part>
 
@@ -152,6 +144,14 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
    <wsdl:message name="deactivatePolicyRequest">
 
       <wsdl:part element="impl:deactivatePolicy" name="parameters">
+
+      </wsdl:part>
+
+   </wsdl:message>
+
+   <wsdl:message name="assignInspectorInitialReportResponse">
+
+      <wsdl:part element="impl:assignInspectorInitialReportResponse" name="parameters">
 
       </wsdl:part>
 
@@ -205,17 +205,17 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    </wsdl:message>
 
-   <wsdl:message name="createInspectorRequest">
+   <wsdl:message name="createDecisionPolicyRequest">
 
-      <wsdl:part element="impl:createInspector" name="parameters">
+      <wsdl:part element="impl:createDecisionPolicy" name="parameters">
 
       </wsdl:part>
 
    </wsdl:message>
 
-   <wsdl:message name="createDecisionPolicyRequest">
+   <wsdl:message name="createInspectorRequest">
 
-      <wsdl:part element="impl:createDecisionPolicy" name="parameters">
+      <wsdl:part element="impl:createInspector" name="parameters">
 
       </wsdl:part>
 
@@ -231,6 +231,42 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    <wsdl:portType name="Admin">
 
+      <wsdl:operation name="createDecision">
+
+         <wsdl:input message="impl:createDecisionRequest" name="createDecisionRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:createDecisionResponse" name="createDecisionResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deactivatePolicy">
+
+         <wsdl:input message="impl:deactivatePolicyRequest" name="deactivatePolicyRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:deactivatePolicyResponse" name="deactivatePolicyResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="activatePolicy">
+
+         <wsdl:input message="impl:activatePolicyRequest" name="activatePolicyRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:activatePolicyResponse" name="activatePolicyResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
       <wsdl:operation name="assignInspectorInitialReport">
 
          <wsdl:input message="impl:assignInspectorInitialReportRequest" name="assignInspectorInitialReportRequest">
@@ -238,18 +274,6 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
        </wsdl:input>
 
          <wsdl:output message="impl:assignInspectorInitialReportResponse" name="assignInspectorInitialReportResponse">
-
-       </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="createInspector">
-
-         <wsdl:input message="impl:createInspectorRequest" name="createInspectorRequest">
-
-       </wsdl:input>
-
-         <wsdl:output message="impl:createInspectorResponse" name="createInspectorResponse">
 
        </wsdl:output>
 
@@ -279,37 +303,13 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
-      <wsdl:operation name="activatePolicy">
+      <wsdl:operation name="createInspector">
 
-         <wsdl:input message="impl:activatePolicyRequest" name="activatePolicyRequest">
-
-       </wsdl:input>
-
-         <wsdl:output message="impl:activatePolicyResponse" name="activatePolicyResponse">
-
-       </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="createDecision">
-
-         <wsdl:input message="impl:createDecisionRequest" name="createDecisionRequest">
+         <wsdl:input message="impl:createInspectorRequest" name="createInspectorRequest">
 
        </wsdl:input>
 
-         <wsdl:output message="impl:createDecisionResponse" name="createDecisionResponse">
-
-       </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="deactivatePolicy">
-
-         <wsdl:input message="impl:deactivatePolicyRequest" name="deactivatePolicyRequest">
-
-       </wsdl:input>
-
-         <wsdl:output message="impl:deactivatePolicyResponse" name="deactivatePolicyResponse">
+         <wsdl:output message="impl:createInspectorResponse" name="createInspectorResponse">
 
        </wsdl:output>
 
@@ -320,6 +320,60 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
    <wsdl:binding name="AdminSoapBinding" type="impl:Admin">
 
       <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="createDecision">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="createDecisionRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="createDecisionResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="deactivatePolicy">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="deactivatePolicyRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="deactivatePolicyResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
+
+      <wsdl:operation name="activatePolicy">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="activatePolicyRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="activatePolicyResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
 
       <wsdl:operation name="assignInspectorInitialReport">
 
@@ -332,24 +386,6 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
          </wsdl:input>
 
          <wsdl:output name="assignInspectorInitialReportResponse">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="createInspector">
-
-         <wsdlsoap:operation soapAction=""/>
-
-         <wsdl:input name="createInspectorRequest">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:input>
-
-         <wsdl:output name="createInspectorResponse">
 
             <wsdlsoap:body use="literal"/>
 
@@ -393,53 +429,17 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
-      <wsdl:operation name="activatePolicy">
+      <wsdl:operation name="createInspector">
 
          <wsdlsoap:operation soapAction=""/>
 
-         <wsdl:input name="activatePolicyRequest">
+         <wsdl:input name="createInspectorRequest">
 
             <wsdlsoap:body use="literal"/>
 
          </wsdl:input>
 
-         <wsdl:output name="activatePolicyResponse">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="createDecision">
-
-         <wsdlsoap:operation soapAction=""/>
-
-         <wsdl:input name="createDecisionRequest">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:input>
-
-         <wsdl:output name="createDecisionResponse">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="deactivatePolicy">
-
-         <wsdlsoap:operation soapAction=""/>
-
-         <wsdl:input name="deactivatePolicyRequest">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:input>
-
-         <wsdl:output name="deactivatePolicyResponse">
+         <wsdl:output name="createInspectorResponse">
 
             <wsdlsoap:body use="literal"/>
 

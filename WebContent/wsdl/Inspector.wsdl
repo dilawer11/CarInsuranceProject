@@ -4,6 +4,20 @@
 Built on Apr 22, 2006 (06:55:48 PDT)-->
  <wsdl:types>
   <schema elementFormDefault="qualified" targetNamespace="http://claim.carinsurance.com" xmlns="http://www.w3.org/2001/XMLSchema">
+   <element name="getPendingAccidentAssignedInspections">
+    <complexType>
+     <sequence>
+      <element name="inspectorID" type="xsd:int"/>
+     </sequence>
+    </complexType>
+   </element>
+   <element name="getPendingAccidentAssignedInspectionsResponse">
+    <complexType>
+     <sequence>
+      <element maxOccurs="unbounded" name="getPendingAccidentAssignedInspectionsReturn" type="xsd:string"/>
+     </sequence>
+    </complexType>
+   </element>
    <element name="submitInitialReport">
     <complexType>
      <sequence>
@@ -21,22 +35,6 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
      </sequence>
     </complexType>
    </element>
-   <element name="submitAccidentReport">
-    <complexType>
-     <sequence>
-      <element name="claimID" type="xsd:int"/>
-      <element name="damageDetails" type="xsd:string"/>
-      <element name="comments" type="xsd:string"/>
-     </sequence>
-    </complexType>
-   </element>
-   <element name="submitAccidentReportResponse">
-    <complexType>
-     <sequence>
-      <element name="submitAccidentReportReturn" type="xsd:int"/>
-     </sequence>
-    </complexType>
-   </element>
    <element name="getPendingInitialAssignedInspections">
     <complexType>
      <sequence>
@@ -51,17 +49,19 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
      </sequence>
     </complexType>
    </element>
-   <element name="getPendingAccidentAssignedInspections">
+   <element name="submitAccidentReport">
     <complexType>
      <sequence>
-      <element name="inspectorID" type="xsd:int"/>
+      <element name="claimID" type="xsd:int"/>
+      <element name="damageDetails" type="xsd:string"/>
+      <element name="comments" type="xsd:string"/>
      </sequence>
     </complexType>
    </element>
-   <element name="getPendingAccidentAssignedInspectionsResponse">
+   <element name="submitAccidentReportResponse">
     <complexType>
      <sequence>
-      <element maxOccurs="unbounded" name="getPendingAccidentAssignedInspectionsReturn" type="xsd:string"/>
+      <element name="submitAccidentReportReturn" type="xsd:int"/>
      </sequence>
     </complexType>
    </element>
@@ -84,17 +84,17 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    </wsdl:message>
 
-   <wsdl:message name="getPendingInitialAssignedInspectionsResponse">
+   <wsdl:message name="getPendingAccidentAssignedInspectionsRequest">
 
-      <wsdl:part element="impl:getPendingInitialAssignedInspectionsResponse" name="parameters">
+      <wsdl:part element="impl:getPendingAccidentAssignedInspections" name="parameters">
 
       </wsdl:part>
 
    </wsdl:message>
 
-   <wsdl:message name="getPendingAccidentAssignedInspectionsRequest">
+   <wsdl:message name="getPendingInitialAssignedInspectionsResponse">
 
-      <wsdl:part element="impl:getPendingAccidentAssignedInspections" name="parameters">
+      <wsdl:part element="impl:getPendingInitialAssignedInspectionsResponse" name="parameters">
 
       </wsdl:part>
 
@@ -134,6 +134,18 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
    <wsdl:portType name="Inspector">
 
+      <wsdl:operation name="getPendingAccidentAssignedInspections">
+
+         <wsdl:input message="impl:getPendingAccidentAssignedInspectionsRequest" name="getPendingAccidentAssignedInspectionsRequest">
+
+       </wsdl:input>
+
+         <wsdl:output message="impl:getPendingAccidentAssignedInspectionsResponse" name="getPendingAccidentAssignedInspectionsResponse">
+
+       </wsdl:output>
+
+      </wsdl:operation>
+
       <wsdl:operation name="submitInitialReport">
 
          <wsdl:input message="impl:submitInitialReportRequest" name="submitInitialReportRequest">
@@ -141,18 +153,6 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
        </wsdl:input>
 
          <wsdl:output message="impl:submitInitialReportResponse" name="submitInitialReportResponse">
-
-       </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="submitAccidentReport">
-
-         <wsdl:input message="impl:submitAccidentReportRequest" name="submitAccidentReportRequest">
-
-       </wsdl:input>
-
-         <wsdl:output message="impl:submitAccidentReportResponse" name="submitAccidentReportResponse">
 
        </wsdl:output>
 
@@ -170,13 +170,13 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
-      <wsdl:operation name="getPendingAccidentAssignedInspections">
+      <wsdl:operation name="submitAccidentReport">
 
-         <wsdl:input message="impl:getPendingAccidentAssignedInspectionsRequest" name="getPendingAccidentAssignedInspectionsRequest">
+         <wsdl:input message="impl:submitAccidentReportRequest" name="submitAccidentReportRequest">
 
        </wsdl:input>
 
-         <wsdl:output message="impl:getPendingAccidentAssignedInspectionsResponse" name="getPendingAccidentAssignedInspectionsResponse">
+         <wsdl:output message="impl:submitAccidentReportResponse" name="submitAccidentReportResponse">
 
        </wsdl:output>
 
@@ -187,6 +187,24 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
    <wsdl:binding name="InspectorSoapBinding" type="impl:Inspector">
 
       <wsdlsoap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+
+      <wsdl:operation name="getPendingAccidentAssignedInspections">
+
+         <wsdlsoap:operation soapAction=""/>
+
+         <wsdl:input name="getPendingAccidentAssignedInspectionsRequest">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:input>
+
+         <wsdl:output name="getPendingAccidentAssignedInspectionsResponse">
+
+            <wsdlsoap:body use="literal"/>
+
+         </wsdl:output>
+
+      </wsdl:operation>
 
       <wsdl:operation name="submitInitialReport">
 
@@ -199,24 +217,6 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
          </wsdl:input>
 
          <wsdl:output name="submitInitialReportResponse">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:output>
-
-      </wsdl:operation>
-
-      <wsdl:operation name="submitAccidentReport">
-
-         <wsdlsoap:operation soapAction=""/>
-
-         <wsdl:input name="submitAccidentReportRequest">
-
-            <wsdlsoap:body use="literal"/>
-
-         </wsdl:input>
-
-         <wsdl:output name="submitAccidentReportResponse">
 
             <wsdlsoap:body use="literal"/>
 
@@ -242,17 +242,17 @@ Built on Apr 22, 2006 (06:55:48 PDT)-->
 
       </wsdl:operation>
 
-      <wsdl:operation name="getPendingAccidentAssignedInspections">
+      <wsdl:operation name="submitAccidentReport">
 
          <wsdlsoap:operation soapAction=""/>
 
-         <wsdl:input name="getPendingAccidentAssignedInspectionsRequest">
+         <wsdl:input name="submitAccidentReportRequest">
 
             <wsdlsoap:body use="literal"/>
 
          </wsdl:input>
 
-         <wsdl:output name="getPendingAccidentAssignedInspectionsResponse">
+         <wsdl:output name="submitAccidentReportResponse">
 
             <wsdlsoap:body use="literal"/>
 

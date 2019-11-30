@@ -18,7 +18,13 @@ public class Client {
 			statement.setString(5, email);
 			statement.setDate(6, Date.valueOf(dateOfBirth));
 			statement.execute();
-			return 1;
+			PreparedStatement stmt2 = con.prepareStatement("SELECT LAST_INSERT_ID();");
+			ResultSet rs = stmt2.executeQuery();
+			int id = -1;
+			while(rs.next()) {
+				id = rs.getInt(1);
+			}
+			return id;
 		} catch(Exception e){
 			return -1;
 		}
@@ -34,7 +40,13 @@ public class Client {
 			statement.setInt(5, clientID);
 			statement.setString(6, makeYear);
 			statement.execute();
-			return 1;
+			PreparedStatement stmt2 = con.prepareStatement("SELECT LAST_INSERT_ID();");
+			ResultSet rs = stmt2.executeQuery();
+			int id = -1;
+			while(rs.next()) {
+				id = rs.getInt(1);
+			}
+			return id;
 		} catch(Exception e){
 			return -1;
 		}
@@ -46,7 +58,13 @@ public class Client {
 			statement.setInt(1, 0);
 			statement.setInt(2, carID);
 			statement.execute();
-			return 1;
+			PreparedStatement stmt2 = con.prepareStatement("SELECT LAST_INSERT_ID();");
+			ResultSet rs = stmt2.executeQuery();
+			int id = -1;
+			while(rs.next()) {
+				id = rs.getInt(1);
+			}
+			return id;
 		} catch(Exception e) {
 			return -1;
 		}
@@ -61,7 +79,13 @@ public class Client {
 			statement.setString(4, city);
 			statement.setDate(5, java.sql.Date.valueOf(date));
 			statement.execute();
-			return 1;
+			PreparedStatement stmt2 = con.prepareStatement("SELECT LAST_INSERT_ID();");
+			ResultSet rs = stmt2.executeQuery();
+			int id = -1;
+			while(rs.next()) {
+				id = rs.getInt(1);
+			}
+			return id;
 		} catch(Exception e) {
 			return -1;
 		}
@@ -73,9 +97,14 @@ public class Client {
 			statement.setInt(1, policyID);
 			statement.setInt(2, accidentID);
 			statement.execute();
-			return 1;
+			PreparedStatement stmt2 = con.prepareStatement("SELECT LAST_INSERT_ID();");
+			ResultSet rs = stmt2.executeQuery();
+			int id = -1;
+			while(rs.next()) {
+				id = rs.getInt(1);
+			}
+			return id;
 		} catch(Exception e) {
-			System.out.println(e);
 			return -1;
 		}
 	}

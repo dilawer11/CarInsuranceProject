@@ -2,6 +2,7 @@ package com.carinsurance.claim;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 
 public class Admin {
 	public int createInspector(String name, String phone, String email) {
@@ -13,8 +14,15 @@ public class Admin {
 			statement.setString(3, phone);
 			statement.setString(4, email);
 			statement.execute();
-			return 1;
+			PreparedStatement stmt2 = con.prepareStatement("SELECT LAST_INSERT_ID();");
+			ResultSet rs = stmt2.executeQuery();
+			int id = -1;
+			while(rs.next()) {
+				id = rs.getInt(1);
+			}
+			return id;
 		} catch(Exception e){
+			System.out.println(e);
 			return -1;
 		}
 	}
@@ -25,7 +33,13 @@ public class Admin {
 			statement.setInt(1, policyID);
 			statement.setInt(2, inspectorID);
 			statement.execute();
-			return 1;
+			PreparedStatement stmt2 = con.prepareStatement("SELECT LAST_INSERT_ID();");
+			ResultSet rs = stmt2.executeQuery();
+			int id = -1;
+			while(rs.next()) {
+				id = rs.getInt(1);
+			}
+			return id;
 		} catch(Exception e){
 			return -1;
 		}
@@ -41,7 +55,13 @@ public class Admin {
 			statement.setString(5, status);
 			statement.setInt(6, policyID);
 			statement.execute();
-			return 1;
+			PreparedStatement stmt2 = con.prepareStatement("SELECT LAST_INSERT_ID();");
+			ResultSet rs = stmt2.executeQuery();
+			int id = -1;
+			while(rs.next()) {
+				id = rs.getInt(1);
+			}
+			return id;
 		} catch(Exception e){
 			return -1;
 		}
@@ -53,7 +73,13 @@ public class Admin {
 			statement.setInt(1, claimID);
 			statement.setInt(2, inspectorID);
 			statement.execute();
-			return 1;
+			PreparedStatement stmt2 = con.prepareStatement("SELECT LAST_INSERT_ID();");
+			ResultSet rs = stmt2.executeQuery();
+			int id = -1;
+			while(rs.next()) {
+				id = rs.getInt(1);
+			}
+			return id;
 		} catch(Exception e){
 			return -1;
 		}

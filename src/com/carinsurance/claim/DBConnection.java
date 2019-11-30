@@ -31,8 +31,8 @@ public class DBConnection {
 	static Connection getConnection() throws Exception {
 		try {
 			String url = "jdbc:mysql://localhost:3306/carinsurance";
-			String username = "root";
-			String password = "";
+			String username = "webapi";
+			String password = "instance1";
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			System.out.println(url);
 			System.out.println(username);

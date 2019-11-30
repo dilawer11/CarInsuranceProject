@@ -20,22 +20,6 @@
       <parameter name="className" value="com.carinsurance.claim.ClientSoapBindingImpl"/>
       <parameter name="wsdlPortType" value="Client"/>
       <parameter name="typeMappingVersion" value="1.2"/>
-      <operation name="createPolicyClient" qname="operNS:createPolicyClient" xmlns:operNS="http://claim.carinsurance.com" returnQName="retNS:createPolicyClientReturn" xmlns:retNS="http://claim.carinsurance.com" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
-        <parameter qname="pns:carID" xmlns:pns="http://claim.carinsurance.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
-      </operation>
-      <operation name="createAccident" qname="operNS:createAccident" xmlns:operNS="http://claim.carinsurance.com" returnQName="retNS:createAccidentReturn" xmlns:retNS="http://claim.carinsurance.com" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
-        <parameter qname="pns:carID" xmlns:pns="http://claim.carinsurance.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
-        <parameter qname="pns:type" xmlns:pns="http://claim.carinsurance.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
-        <parameter qname="pns:city" xmlns:pns="http://claim.carinsurance.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
-        <parameter qname="pns:date" xmlns:pns="http://claim.carinsurance.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
-      </operation>
-      <operation name="createClaim" qname="operNS:createClaim" xmlns:operNS="http://claim.carinsurance.com" returnQName="retNS:createClaimReturn" xmlns:retNS="http://claim.carinsurance.com" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
-        <parameter qname="pns:policyID" xmlns:pns="http://claim.carinsurance.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
-        <parameter qname="pns:accidentID" xmlns:pns="http://claim.carinsurance.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
-      </operation>
-      <operation name="getStatusPolicyApplication" qname="operNS:getStatusPolicyApplication" xmlns:operNS="http://claim.carinsurance.com" returnQName="retNS:getStatusPolicyApplicationReturn" xmlns:retNS="http://claim.carinsurance.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
-        <parameter qname="pns:policyID" xmlns:pns="http://claim.carinsurance.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
-      </operation>
       <operation name="createClient" qname="operNS:createClient" xmlns:operNS="http://claim.carinsurance.com" returnQName="retNS:createClientReturn" xmlns:retNS="http://claim.carinsurance.com" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
         <parameter qname="pns:name" xmlns:pns="http://claim.carinsurance.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
         <parameter qname="pns:address" xmlns:pns="http://claim.carinsurance.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
@@ -43,8 +27,24 @@
         <parameter qname="pns:email" xmlns:pns="http://claim.carinsurance.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
         <parameter qname="pns:dateOfBirth" xmlns:pns="http://claim.carinsurance.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
       </operation>
+      <operation name="createPolicyClient" qname="operNS:createPolicyClient" xmlns:operNS="http://claim.carinsurance.com" returnQName="retNS:createPolicyClientReturn" xmlns:retNS="http://claim.carinsurance.com" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:carID" xmlns:pns="http://claim.carinsurance.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
       <operation name="getStatusAccident" qname="operNS:getStatusAccident" xmlns:operNS="http://claim.carinsurance.com" returnQName="retNS:getStatusAccidentReturn" xmlns:retNS="http://claim.carinsurance.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
         <parameter qname="pns:claimID" xmlns:pns="http://claim.carinsurance.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="createClaim" qname="operNS:createClaim" xmlns:operNS="http://claim.carinsurance.com" returnQName="retNS:createClaimReturn" xmlns:retNS="http://claim.carinsurance.com" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:policyID" xmlns:pns="http://claim.carinsurance.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:accidentID" xmlns:pns="http://claim.carinsurance.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="createAccident" qname="operNS:createAccident" xmlns:operNS="http://claim.carinsurance.com" returnQName="retNS:createAccidentReturn" xmlns:retNS="http://claim.carinsurance.com" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:carID" xmlns:pns="http://claim.carinsurance.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:type" xmlns:pns="http://claim.carinsurance.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:city" xmlns:pns="http://claim.carinsurance.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:date" xmlns:pns="http://claim.carinsurance.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="getStatusPolicyApplication" qname="operNS:getStatusPolicyApplication" xmlns:operNS="http://claim.carinsurance.com" returnQName="retNS:getStatusPolicyApplicationReturn" xmlns:retNS="http://claim.carinsurance.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:policyID" xmlns:pns="http://claim.carinsurance.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
       </operation>
       <operation name="createCar" qname="operNS:createCar" xmlns:operNS="http://claim.carinsurance.com" returnQName="retNS:createCarReturn" xmlns:retNS="http://claim.carinsurance.com" returnType="rtns:int" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
         <parameter qname="pns:registrationNumber" xmlns:pns="http://claim.carinsurance.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>

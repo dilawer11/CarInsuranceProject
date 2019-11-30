@@ -20,17 +20,17 @@
       <parameter name="className" value="com.carinsurance.claim.CommonSoapBindingImpl"/>
       <parameter name="wsdlPortType" value="Common"/>
       <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="getPolicyDetails" qname="operNS:getPolicyDetails" xmlns:operNS="http://claim.carinsurance.com" returnQName="retNS:getPolicyDetailsReturn" xmlns:retNS="http://claim.carinsurance.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:policyID" xmlns:pns="http://claim.carinsurance.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
       <operation name="getCarDetails" qname="operNS:getCarDetails" xmlns:operNS="http://claim.carinsurance.com" returnQName="retNS:getCarDetailsReturn" xmlns:retNS="http://claim.carinsurance.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
         <parameter qname="pns:carID" xmlns:pns="http://claim.carinsurance.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
-      </operation>
-      <operation name="getClientDetails" qname="operNS:getClientDetails" xmlns:operNS="http://claim.carinsurance.com" returnQName="retNS:getClientDetailsReturn" xmlns:retNS="http://claim.carinsurance.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
-        <parameter qname="pns:clientID" xmlns:pns="http://claim.carinsurance.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
       </operation>
       <operation name="getAccidentDetails" qname="operNS:getAccidentDetails" xmlns:operNS="http://claim.carinsurance.com" returnQName="retNS:getAccidentDetailsReturn" xmlns:retNS="http://claim.carinsurance.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
         <parameter qname="pns:accidentID" xmlns:pns="http://claim.carinsurance.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
       </operation>
-      <operation name="getPolicyDetails" qname="operNS:getPolicyDetails" xmlns:operNS="http://claim.carinsurance.com" returnQName="retNS:getPolicyDetailsReturn" xmlns:retNS="http://claim.carinsurance.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
-        <parameter qname="pns:policyID" xmlns:pns="http://claim.carinsurance.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      <operation name="getClientDetails" qname="operNS:getClientDetails" xmlns:operNS="http://claim.carinsurance.com" returnQName="retNS:getClientDetailsReturn" xmlns:retNS="http://claim.carinsurance.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:clientID" xmlns:pns="http://claim.carinsurance.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
       </operation>
       <parameter name="allowedMethods" value="getPolicyDetails getClientDetails getCarDetails getAccidentDetails"/>
 

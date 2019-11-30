@@ -22,7 +22,13 @@ public class Inspector {
 			statement.setString(4, "WAIT_DEC");
 			statement.setString(5, comments);
 			statement.execute();
-			return 1;
+			PreparedStatement stmt2 = con.prepareStatement("SELECT LAST_INSERT_ID();");
+			ResultSet rs = stmt2.executeQuery();
+			int id = -1;
+			while(rs.next()) {
+				id = rs.getInt(1);
+			}
+			return id;
 		} catch(Exception e){
 			return -1;
 		}

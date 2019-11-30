@@ -10,22 +10,22 @@
       <parameter name="className" value="com.carinsurance.claim.Inspector"/>
       <parameter name="wsdlPortType" value="Inspector"/>
       <parameter name="typeMappingVersion" value="1.2"/>
+      <operation xmlns:operNS="http://claim.carinsurance.com" xmlns:retNS="http://claim.carinsurance.com" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="getPendingAccidentAssignedInspections" qname="operNS:getPendingAccidentAssignedInspections" returnQName="retNS:getPendingAccidentAssignedInspectionsReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://claim.carinsurance.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:inspectorID" type="tns:int"/>
+      </operation>
       <operation xmlns:operNS="http://claim.carinsurance.com" xmlns:retNS="http://claim.carinsurance.com" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="submitInitialReport" qname="operNS:submitInitialReport" returnQName="retNS:submitInitialReportReturn" returnType="rtns:int" soapAction="">
         <parameter xmlns:pns="http://claim.carinsurance.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:policyID" type="tns:int"/>
         <parameter xmlns:pns="http://claim.carinsurance.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:inspectorID" type="tns:int"/>
         <parameter xmlns:pns="http://claim.carinsurance.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:carCondition" type="tns:int"/>
         <parameter xmlns:pns="http://claim.carinsurance.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:comments" type="tns:string"/>
       </operation>
+      <operation xmlns:operNS="http://claim.carinsurance.com" xmlns:retNS="http://claim.carinsurance.com" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="getPendingInitialAssignedInspections" qname="operNS:getPendingInitialAssignedInspections" returnQName="retNS:getPendingInitialAssignedInspectionsReturn" returnType="rtns:string" soapAction="">
+        <parameter xmlns:pns="http://claim.carinsurance.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:inspectorID" type="tns:int"/>
+      </operation>
       <operation xmlns:operNS="http://claim.carinsurance.com" xmlns:retNS="http://claim.carinsurance.com" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="submitAccidentReport" qname="operNS:submitAccidentReport" returnQName="retNS:submitAccidentReportReturn" returnType="rtns:int" soapAction="">
         <parameter xmlns:pns="http://claim.carinsurance.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:claimID" type="tns:int"/>
         <parameter xmlns:pns="http://claim.carinsurance.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:damageDetails" type="tns:string"/>
         <parameter xmlns:pns="http://claim.carinsurance.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:comments" type="tns:string"/>
-      </operation>
-      <operation xmlns:operNS="http://claim.carinsurance.com" xmlns:retNS="http://claim.carinsurance.com" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="getPendingInitialAssignedInspections" qname="operNS:getPendingInitialAssignedInspections" returnQName="retNS:getPendingInitialAssignedInspectionsReturn" returnType="rtns:string" soapAction="">
-        <parameter xmlns:pns="http://claim.carinsurance.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:inspectorID" type="tns:int"/>
-      </operation>
-      <operation xmlns:operNS="http://claim.carinsurance.com" xmlns:retNS="http://claim.carinsurance.com" xmlns:rtns="http://www.w3.org/2001/XMLSchema" name="getPendingAccidentAssignedInspections" qname="operNS:getPendingAccidentAssignedInspections" returnQName="retNS:getPendingAccidentAssignedInspectionsReturn" returnType="rtns:string" soapAction="">
-        <parameter xmlns:pns="http://claim.carinsurance.com" xmlns:tns="http://www.w3.org/2001/XMLSchema" qname="pns:inspectorID" type="tns:int"/>
       </operation>
       <parameter name="allowedMethods" value="submitInitialReport getPendingInitialAssignedInspections submitAccidentReport getPendingAccidentAssignedInspections"/>
 
